@@ -23,16 +23,22 @@ class OptionsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.binding.tvOption.text = options[position].option
+        val model = options[position]
+        holder.binding.tvOption.text = model.option
 
         when (type) {
             "checkbox" -> {
                 holder.binding.ivSelection.setImageResource(R.drawable.ic_check_box_unselected)
-                holder.binding.root.setOnClickListener {
-                    for (i in options.indices) {
-                        options[i].selected = !options[i].selected
-                        notifyItemChanged(i)
-                    }
+
+                if (model.selected) {
+                    holder.binding.ivSelection.setImageResource(R.drawable.ic_check_box_selected)
+                }else {
+                    holder.binding.ivSelection.setImageResource(R.drawable.ic_check_box_unselected)
+                }
+
+                holder.binding.btnSelect.setOnClickListener {
+                    options[position].selected = !options[position].selected
+                    notifyItemChanged(position)
 
                     for (i in options.indices) {
                         if (options[i].selected) {
@@ -45,7 +51,12 @@ class OptionsAdapter(
             }
             "radio" -> {
                 holder.binding.ivSelection.setImageResource(R.drawable.ic_radio_unselected)
-                holder.binding.root.setOnClickListener {
+                if (model.selected) {
+                    holder.binding.ivSelection.setImageResource(R.drawable.ic_radio_selected)
+                }else {
+                    holder.binding.ivSelection.setImageResource(R.drawable.ic_radio_unselected)
+                }
+                holder.binding.btnSelect.setOnClickListener {
                     for (i in options.indices) {
                         val isSelected = i == position
                         options[i].selected = isSelected

@@ -30,6 +30,7 @@
                 android:contentDescription="@string/app_name"/>
 
             <TextView
+                android:id="@+id/btn_send_check_up"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:background="@drawable/bg_white_8"

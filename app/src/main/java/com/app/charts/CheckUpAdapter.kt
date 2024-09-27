@@ -1,6 +1,9 @@
 package com.app.charts
 
 import android.content.Context
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,19 +28,42 @@ class CheckUpAdapter(
 
         model.type?.let {
             when (it) {
-                "checkbox","radio" -> {
+                "checkbox" -> {
                     binding.rvOptions.visibility = View.VISIBLE
                     val optionsAdapter = OptionsAdapter(context,getOptionList(model.options!!),it) {
-
+                        model.isAnswered = true
+                    }
+                    binding.rvOptions.adapter = optionsAdapter
+                    binding.rvOptions.layoutManager = LinearLayoutManager(context)
+                }
+                "radio" -> {
+                    binding.rvOptions.visibility = View.VISIBLE
+                    val optionsAdapter = OptionsAdapter(context,getOptionList(model.options!!),it) {
+                        model.isAnswered = true
                     }
                     binding.rvOptions.adapter = optionsAdapter
                     binding.rvOptions.layoutManager = LinearLayoutManager(context)
                 }
                 "answer" -> {
                     binding.llAnswer.visibility = View.VISIBLE
+                    binding.etAnswer.addTextChangedListener(object : TextWatcher{
+                        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+                        }
+
+                        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                            model.isAnswered = !TextUtils.isEmpty(s.toString())
+                        }
+
+                        override fun afterTextChanged(s: Editable?) {
+
+                        }
+
+                    })
                 }
                 "range" -> {
                     binding.llRange.visibility = View.VISIBLE
+                    model.isAnswered = true
                 }
             }
 

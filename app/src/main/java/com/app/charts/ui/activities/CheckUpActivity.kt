@@ -1,6 +1,7 @@
 package com.app.charts.ui.activities
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,10 +11,12 @@ import com.app.charts.CheckUp
 import com.app.charts.CheckUpAdapter
 import com.app.charts.R
 import com.app.charts.databinding.ActivityCheckUpBinding
+import com.app.charts.helpers.Utilities
 
 class CheckUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCheckUpBinding
+    private var list: List<CheckUp>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +25,31 @@ class CheckUpActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
-        setAdapter()
+
+
+        list = getList()
+        setAdapter(list!!)
+
+        binding.btnSendCheckUp.setOnClickListener {
+            var answered = 0
+            for (i in 0 until list!!.size) {
+                if (list!![i].isAnswered) {
+                    answered ++
+                }else {
+                    Toast.makeText(this, "Please answer question no ${i+1}", Toast.LENGTH_SHORT).show()
+                    break
+                }
+            }
+
+            if (answered == list!!.size) {
+                Toast.makeText(this, "Okay", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     }
 
-    private fun setAdapter() {
-        val adapter = CheckUpAdapter(this, getList())
+    private fun setAdapter(list: List<CheckUp>) {
+        val adapter = CheckUpAdapter(this, list)
         binding.rvCheckUp.adapter = adapter
         binding.rvCheckUp.layoutManager = LinearLayoutManager(this)
     }
