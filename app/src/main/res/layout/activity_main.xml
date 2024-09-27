@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.activities.MainActivity"
+    tools:ignore="HardcodedText">
+
+    <Button
+        android:id="@+id/btnLineChart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Line Chart"
+        android:textSize="@dimen/_10ssp" />
+
+    <Button
+        android:id="@+id/btnBarChart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Bar Chart"
+        android:textSize="@dimen/_10ssp" />
+
+    <Button
+        android:id="@+id/btnHydration"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Water Intake"
+        android:textSize="@dimen/_10ssp" />
+
+    <Button
+        android:id="@+id/btnSteps"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Steps Counter"
+        android:textSize="@dimen/_10ssp" />
+
+    <Button
+        android:id="@+id/btnSleepChart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Sleep Chart"
+        android:textSize="@dimen/_10ssp" />
+
+    <Button
+        android:id="@+id/btnWeight"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Weight Progress"
+        android:textSize="@dimen/_10ssp" />
+
+    <Button
+        android:id="@+id/btnCheckUp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Check Up"
+        android:textSize="@dimen/_10ssp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <com.google.android.material.slider.Slider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            android:value="1"
+            android:valueFrom="1"
+            android:valueTo="4"
+            app:labelBehavior="gone"
+            app:thumbColor="@color/purple"
+            app:thumbElevation="@dimen/_2sdp"
+            app:thumbHeight="@dimen/_18sdp"
+            app:thumbStrokeColor="@color/white"
+            app:thumbStrokeWidth="@dimen/_1sdp"
+            app:thumbWidth="@dimen/_18sdp"
+            app:tickVisible="false"
+            app:trackColor="@color/f5"
+            app:trackColorActive="@color/f5"
+            app:trackColorInactive="@color/f5"
+            app:trackHeight="@dimen/_8sdp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:paddingHorizontal="@dimen/_15sdp"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/_8sdp"
+    android:text="46 KG"
+    android:id="@+id/tv_marker_view"
+    android:textColor="@color/white"
+    android:textStyle="bold"
+    android:gravity="center"
+    android:textSize="@dimen/_9ssp"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:background="@drawable/bg_marker_view"/>
