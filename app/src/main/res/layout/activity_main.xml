@@ -56,6 +56,15 @@
         android:textSize="@dimen/_10ssp" />
 
     <Button
+        android:id="@+id/btnSleepProgress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/black"
+        android:text="Sleep Progress"
+        android:textSize="@dimen/_10ssp" />
+
+    <Button
         android:id="@+id/btnWeight"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"

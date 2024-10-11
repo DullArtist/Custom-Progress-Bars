@@ -54,6 +54,11 @@ class MainActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnSleepProgress.setOnClickListener {
+            val intent = Intent(context, SleepCircleChartActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnWeight.setOnClickListener {
             val intent = Intent(context, WeightProgressActivity::class.java)
             startActivity(intent)
